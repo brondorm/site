@@ -2,12 +2,328 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Support Assistant</title>
+    <title>AI Support Assistant — будущее клиентской поддержки</title>
+    <meta
+      name="description"
+      content="AI-помощник отвечает на типовые запросы клиентов и разгружает команду поддержки. Узнайте, как внедрить бота под свой бизнес."
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="min-h-screen bg-background text-foreground">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="hero__background">
+          <img
+            class="hero__image"
+            src="https://images.unsplash.com/photo-1756908992154-c8a89f5e517f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neSUyMG5ldHdvcmt8ZW58MXx8fHwxNzU5NzYxMzYzfDA&ixlib=rb-4.1.0&q=80&w=1600"
+            alt="Футуристический фон"
+          />
+          <div class="hero__grid" aria-hidden="true"></div>
+        </div>
+        <div class="hero__content container">
+          <h1 class="hero__title gradient-text">Будущее клиентской поддержки уже здесь</h1>
+          <p class="hero__description">
+            AI-помощник, который отвечает на типовые запросы, бережёт время команды и создаёт безупречный клиентский опыт 24/7.
+          </p>
+          <a class="button" href="https://t.me/brondorm" target="_blank" rel="noopener noreferrer">
+            Записаться на демо
+          </a>
+          <div class="hero__dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="problem-solution">
+        <div class="container">
+          <div class="badge">Проблема</div>
+          <h2 class="section-title">Клиенты задают десятки однотипных вопросов каждый день</h2>
+          <p class="section-subtitle">Менеджеры утопают в рутине. Клиенты ждут. Команда выгорает.</p>
+          <div class="problem-solution__list">
+            <div class="problem-solution__item">60% рабочего времени уходит на однообразные ответы.</div>
+            <div class="problem-solution__item">Постоянные переключения мешают сосредоточиться на важных задачах.</div>
+            <div class="problem-solution__item">Каждая лишняя минута ожидания — шанс для конкурента.</div>
+          </div>
+
+          <div class="problem-solution__arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <polyline points="8 4 16 12 8 20" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            </svg>
+          </div>
+
+          <div class="problem-solution__solution">
+            <div class="badge" style="background: rgba(0, 209, 255, 0.16); border-color: rgba(0, 209, 255, 0.32); color: var(--accent);">
+              Решение
+            </div>
+            <div class="problem-solution__glow" aria-hidden="true"></div>
+            <div class="problem-solution__content">
+              <h2 class="section-title" style="margin-bottom: 1.25rem;">AI-бот, который берёт на себя однотипные запросы</h2>
+              <p class="section-subtitle">
+                Бот обучается на ваших данных, мгновенно отвечает на типовые вопросы и подключает менеджера только тогда, когда это
+                действительно необходимо. Команда дышит, клиенты довольны, бизнес растёт.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works">
+        <div class="container">
+          <h2 class="section-title">Как это работает</h2>
+          <p class="section-subtitle">Четыре этапа создания вашего персонального AI-помощника</p>
+          <div class="how-it-works__grid">
+            <article class="how-it-works__card">
+              <div class="how-it-works__number">01</div>
+              <div class="icon-bubble">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"></path>
+                  <circle cx="8" cy="6" r="2"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                  <circle cx="16" cy="18" r="2"></circle>
+                </svg>
+              </div>
+              <h3 class="card-title">Обучаем бота на ваших данных</h3>
+              <p class="card-description">
+                Собираем информацию о компании и обучаем бота именно тем знаниям, которые нужны вашим клиентам. Никаких фантазий —
+                только проверенные ответы.
+              </p>
+            </article>
+            <article class="how-it-works__card">
+              <div class="how-it-works__number">02</div>
+              <div class="icon-bubble">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="3.5"></circle>
+                  <path d="M3.6 9h2M3.6 15h2M18.4 9h2M18.4 15h2" stroke-linecap="round"></path>
+                  <path d="M12 3.6v2M12 18.4v2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Настраиваем под ваш бренд</h3>
+              <p class="card-description">
+                Имя, тон общения, сценарии — всё адаптируется под фирменный стиль. Клиенты общаются с ботом, который звучит как ваша
+                команда.
+              </p>
+            </article>
+            <article class="how-it-works__card">
+              <div class="how-it-works__number">03</div>
+              <div class="icon-bubble">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 15l8 5 8-5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M4 9l8 5 8-5-8-5-8 5z" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Передаём готового бота</h3>
+              <p class="card-description">
+                После настройки бот полностью готов к работе. Подключаем к вашим каналам и показываем, как он разгружает команду с
+                первых минут.
+              </p>
+            </article>
+            <article class="how-it-works__card">
+              <div class="how-it-works__number">04</div>
+              <div class="icon-bubble">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 19v-2a3 3 0 013-3h6a3 3 0 013 3v2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <circle cx="12" cy="8" r="4"></circle>
+                </svg>
+              </div>
+              <h3 class="card-title">Поддерживаем и улучшаем</h3>
+              <p class="card-description">
+                Следим за качеством ответов, быстро обновляем базы знаний, добавляем новые сценарии. Никаких IT-навыков от вас не
+                требуется.
+              </p>
+            </article>
+          </div>
+          <div class="how-it-works__dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits">
+        <div class="benefits__orbit benefits__orbit--one" aria-hidden="true"></div>
+        <div class="benefits__orbit benefits__orbit--two" aria-hidden="true"></div>
+        <div class="container">
+          <h2 class="section-title">Ценность и выгоды</h2>
+          <p class="section-subtitle">Каждая функция создана ради эффективности вашей команды и опыта клиентов</p>
+          <div class="benefits__grid">
+            <article class="benefit-card">
+              <div class="benefit-card__icon" style="background: linear-gradient(120deg, #00d1ff, #0099cc);">⏱</div>
+              <h3 class="benefit-card__title">Экономия до 60% времени на рутине</h3>
+              <p class="benefit-card__text">
+                Автоматические ответы на типовые вопросы освобождают менеджеров для задач, которые приносят деньги.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <div class="benefit-card__icon" style="background: linear-gradient(120deg, #a7f5ff, #00d1ff);">💬</div>
+              <h3 class="benefit-card__title">Быстрые и точные ответы 24/7</h3>
+              <p class="benefit-card__text">
+                Клиенты получают мгновенные ответы в любое время суток и не ждут свободного менеджера.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <div class="benefit-card__icon" style="background: linear-gradient(120deg, #00d1ff, #66e0ff);">🤝</div>
+              <h3 class="benefit-card__title">Никаких потерь при передаче клиента</h3>
+              <p class="benefit-card__text">
+                Бот передаёт менеджеру полный контекст переписки, поэтому диалог продолжается без повторов и недопониманий.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <div class="benefit-card__icon" style="background: linear-gradient(120deg, #66e0ff, #a7f5ff);">🛡</div>
+              <h3 class="benefit-card__title">Безопасная обработка данных</h3>
+              <p class="benefit-card__text">
+                Информация клиентов защищена и обрабатывается в соответствии с современными стандартами безопасности.
+              </p>
+            </article>
+          </div>
+          <div class="benefits__stats">
+            <div>
+              <div class="benefits__stat-value">60%</div>
+              <p class="benefits__stat-label">Экономия времени команды</p>
+            </div>
+            <div>
+              <div class="benefits__stat-value">24/7</div>
+              <p class="benefits__stat-label">Доступность для клиентов</p>
+            </div>
+            <div>
+              <div class="benefits__stat-value">100%</div>
+              <p class="benefits__stat-label">Точность передачи запросов</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-now">
+        <div class="why-now__background" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1703384327813-7f090a302e14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGhvbG9ncmFwaGljJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NTk3NjEzNjd8MA&ixlib=rb-4.1.0&q=80&w=1600"
+            alt="Абстрактная голографическая иллюстрация"
+          />
+          <div class="why-now__overlay"></div>
+          <div class="why-now__rays"></div>
+        </div>
+        <div class="container why-now__content">
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">AI уже стал вашим коллегой</h2>
+          <p class="section-subtitle" style="max-width: 780px;">
+            Мы живём в мире, где технологии помогают людям делать больше. Этот бот — не замена менеджерам, а инструмент, который
+            усиливает их.
+          </p>
+          <div class="why-now__grid">
+            <article class="why-now__card">
+              <div class="why-now__icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 5c-3.5 0-6 2.8-6 6.2 0 2.2 1.2 4.2 3 5.3-.1 1.1-.6 2.6-1.4 3.5 1.6-.3 3.2-1.2 4.2-1.9 3.3 0 6.2-2.7 6.2-6.1C17.9 7.8 15.5 5 12 5z"
+                    fill="none"
+                    stroke-width="1.8"
+                    stroke="#041318"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Искусственный интеллект от OpenAI</h3>
+              <p class="card-description">
+                Используем современные LLM-модели, которые обеспечивают точность и естественность ответов.
+              </p>
+            </article>
+            <article class="why-now__card">
+              <div class="why-now__icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="4" y="4" width="16" height="16" rx="3" ry="3"></rect>
+                  <circle cx="12" cy="12" r="3.5"></circle>
+                  <path d="M9 2h6M2 9v6M22 9v6M9 22h6" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Продвинутая обработка</h3>
+              <p class="card-description">
+                Бот понимает контекст и тон человеческой речи, поэтому отвечает естественно и уверенно.
+              </p>
+            </article>
+            <article class="why-now__card">
+              <div class="why-now__icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13 4h-2l-1 5h4l-1-5z" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M5 13l-1 4h4l1-4h6l1 4h4l-1-4" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M9 17l-1 3 4-2 4 2-1-3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Мгновенная реакция</h3>
+              <p class="card-description">Ответы за секунды — клиенты получают поддержку именно тогда, когда им нужно.</p>
+            </article>
+          </div>
+          <div class="why-now__footer">
+            <div class="why-now__footer-inner">
+              <p>«Будущее уже здесь — в каждом автоматизированном ответе»</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="final-cta__pattern" aria-hidden="true"></div>
+        <div class="final-cta__glow final-cta__glow--one" aria-hidden="true"></div>
+        <div class="final-cta__glow final-cta__glow--two" aria-hidden="true"></div>
+        <div class="container">
+          <div class="final-cta__content">
+            <h2 class="section-title">Попробуй, как работает бот</h2>
+            <p class="section-subtitle">
+              Протестируйте демо-версию и посмотрите, как легко можно разгрузить свою команду с помощью AI.
+            </p>
+            <div class="final-cta__buttons">
+              <a class="button" href="https://t.me/brondorm" target="_blank" rel="noopener noreferrer">
+                Запросить демо-доступ
+              </a>
+              <a class="button button--secondary" href="#demo-video">Смотреть видео-демо</a>
+            </div>
+          </div>
+
+          <div class="final-cta__traits">
+            <div class="final-cta__trait">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 4l8 4v8l-8 4-8-4V8l8-4zm0 0v16m0 0l-6-3m6 3l6-3M6 8l6 3 6-3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <span>Безопасность данных гарантирована</span>
+            </div>
+            <div class="final-cta__trait">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 16.92V19a2 2 0 01-2.18 2A19.86 19.86 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72 12.78 12.78 0 00.7 2.81 2 2 0 01-.45 2.11l-.7.7a16 16 0 006.82 6.82l.7-.7a2 2 0 012.11-.45 12.78 12.78 0 002.81.7A2 2 0 0122 16.92z"></path>
+              </svg>
+              <span>Поддержка 24/7</span>
+            </div>
+            <div class="final-cta__trait">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M4 9h16M9 20v-6h6v6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Быстрая интеграция</span>
+            </div>
+          </div>
+
+          <footer>
+            <div class="final-cta__footer-top">
+              <div class="final-cta__logo">
+                <div class="final-cta__logo-mark">AI</div>
+                <span style="font-size: 1.5rem; font-weight: 600;">AI Assistant</span>
+              </div>
+              <nav class="final-cta__links" aria-label="Полезные ссылки">
+                <a href="#policy">Политика конфиденциальности</a>
+                <a href="#terms">Условия использования</a>
+                <a href="#contacts">Контакты</a>
+              </nav>
+            </div>
+            <div class="final-cta__copyright">&copy; 2025 AI Assistant. Будущее клиентской поддержки.</div>
+          </footer>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
