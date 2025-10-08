@@ -859,12 +859,12 @@ section {
 .final-cta__logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.65rem;
 }
 
 .final-cta__logo-image {
-  width: 64px;
-  height: 48px;
+  width: 192px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -872,7 +872,7 @@ section {
 
 .final-cta__logo-image svg {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .final-cta__logo-text {
