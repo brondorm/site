@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
-import { ArrowRight, Mail, Phone, Shield } from "lucide-react";
+import { ArrowRight, Mail, Phone, Shield, MousePointerClick } from "lucide-react";
+import logoImage from "figma:asset/e670149348a17ae91dd5f254be5036d57e752682.png";
 
 export function FinalCTA() {
   return (
@@ -82,8 +83,8 @@ export function FinalCTA() {
             { icon: Phone, text: "Поддержка 24/7" },
             { icon: Mail, text: "Быстрая интеграция" }
           ].map((item, index) => (
-            <div key={index} className="flex items-center gap-2 text-gray-400">
-              <item.icon className="w-5 h-5 text-[#00D1FF]" />
+            <div key={index} className="flex items-center justify-center gap-1 text-gray-400">
+              <item.icon className="w-5 h-5 text-[#00D1FF] flex-shrink-0" />
               <span>{item.text}</span>
             </div>
           ))}
@@ -99,14 +100,14 @@ export function FinalCTA() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             {/* Logo */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <motion.div
-                className="w-10 h-10 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-lg flex items-center justify-center"
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="w-16 h-16 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.4)]"
+                whileHover={{ scale: 1.1 }}
               >
-                <div className="w-6 h-6 bg-black rounded-sm" />
+                <MousePointerClick className="w-9 h-9 text-black" />
               </motion.div>
-              <span className="text-2xl text-white">AI Assistant</span>
+              <span className="text-4xl text-white">ClickToFuture</span>
             </div>
 
             {/* Links */}
@@ -124,7 +125,7 @@ export function FinalCTA() {
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/5 text-center text-gray-500">
-            <p>&copy; 2025 AI Assistant. Будущее клиентской поддержки.</p>
+            <p>&copy; 2025 ClickToFuture. Будущее клиентской поддержки.</p>
           </div>
         </motion.footer>
       </div>
