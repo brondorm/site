@@ -69,7 +69,7 @@ export function HeroSection() {
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)]"
-            onClick={() => window.open('https://t.me/brondorm', '_blank')}
+            onClick={() => window.open('https://t.me/ClickToFuture_bot', '_blank')}
           >
             Записаться на демо
           </Button>
