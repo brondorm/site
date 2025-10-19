@@ -139,7 +139,7 @@ export function TermsOfService() {
               <p className="text-gray-300 leading-relaxed mb-3">
                 6.1. Обработка персональных данных осуществляется в соответствии с <strong>Политикой конфиденциальности</strong>, доступной по адресу{" "}
                 <Link to="/privacy" className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors">
-                  https://clicktofuture.ru/privacy
+                  https://clicktofuture.ru/#/privacy
                 </Link>.
               </p>
               <p className="text-gray-300 leading-relaxed">
@@ -167,8 +167,11 @@ export function TermsOfService() {
               </p>
               <p className="text-gray-300 leading-relaxed">
                 8.2. Актуальная версия Соглашения всегда доступна по адресу{" "}
-                <a href="https://clicktofuture.ru/terms" className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors">
-                  https://clicktofuture.ru/terms
+                <a
+                  href="https://clicktofuture.ru/#/terms"
+                  className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors"
+                >
+                  https://clicktofuture.ru/#/terms
                 </a>.
               </p>
             </section>
