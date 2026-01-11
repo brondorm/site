@@ -80,12 +80,22 @@ export function ProblemSolution() {
           
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl text-white mb-8 text-center">
-              AI-бот, который берёт на себя однотипные запросы.
+              Контур первичной обработки клиентов:
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Обучившись на ваших данных, он отвечает на типовые запросы и подключает менеджера только когда нужно.
-              Результат — команда дышит, клиенты довольны, бизнес растёт.
-            </p>
+            <ul className="text-left text-xl text-gray-300 leading-relaxed space-y-4 max-w-3xl mx-auto">
+              <li>
+                <strong>Ответы на типовые вопросы</strong> по вашей базе знаний
+              </li>
+              <li>
+                <strong>Сбор заявки по чек-листу</strong> (без потерь данных)
+              </li>
+              <li>
+                <strong>Модуль ТН ВЭД</strong>: помогает клиенту и менеджеру быстрее пройти этап классификации
+              </li>
+              <li>
+                <strong>Передача менеджеру с полным контекстом</strong>: переписка, заполненные поля заявки, статус
+              </li>
+            </ul>
           </div>
 
           {/* Glowing effect */}
