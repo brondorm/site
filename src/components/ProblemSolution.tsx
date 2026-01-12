@@ -80,12 +80,25 @@ export function ProblemSolution() {
           
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl text-white mb-8 text-center">
-              AI-бот, который берёт на себя однотипные запросы.
+              Контур первичной обработки клиентов
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Обучившись на ваших данных, он отвечает на типовые запросы и подключает менеджера только когда нужно.
-              Результат — команда дышит, клиенты довольны, бизнес растёт.
+            <p className="text-lg text-gray-400 leading-relaxed">
+              Каждое звено выстроено для быстрой и аккуратной работы с запросами первой линии.
             </p>
+
+            <ul className="mt-8 space-y-4 text-left text-xl text-gray-300">
+              {[
+                "Ответы на типовые вопросы по вашей базе знаний.",
+                "Сбор заявки по чек-листу (без потерь данных).",
+                "Модуль ТН ВЭД: помогает клиенту и менеджеру быстрее пройти этап классификации.",
+                "Передача менеджеру с полным контекстом: переписка, заполненные поля заявки, статус."
+              ].map((item, idx) => (
+                <li key={idx} className="flex gap-3">
+                  <span className="text-[#00D1FF] text-2xl leading-none">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Glowing effect */}
