@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { MousePointerClick } from "lucide-react";
 
@@ -33,41 +33,6 @@ export function ManagerPanel() {
   const [flipped, setFlipped] = useState<boolean[]>(
     () => panelFeatures.map(() => false)
   );
-  const [showHint, setShowHint] = useState(true);
-  const [hintArmed, setHintArmed] = useState(false);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHintArmed(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!hintArmed) {
-      return;
-    }
-
-    const handleScroll = () => {
-      setShowHint(false);
-      window.removeEventListener("scroll", handleScroll);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [hintArmed]);
 
   const toggleCard = (index: number) => {
     setFlipped((previous) =>
@@ -191,25 +156,28 @@ export function ManagerPanel() {
                     </div>
                   </div>
                 </div>
-
-                {showHint && index === 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 rounded-full border border-[#00D1FF]/30 bg-[#0B1624]/90 px-4 py-2 text-xs text-[#A7F5FF] shadow-[0_0_25px_rgba(0,209,255,0.25)] md:left-auto md:right-6 md:translate-x-0 md:text-sm"
-                  >
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D1FF]/60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00D1FF]" />
-                    </span>
-                    <MousePointerClick className="h-4 w-4 text-[#A7F5FF]" />
-                    <span>Нажми, чтобы увидеть</span>
-                  </motion.div>
-                )}
               </motion.button>
             ))}
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-10 flex justify-center"
+          >
+            <div
+              className="pointer-events-none flex items-center gap-2 rounded-full border border-[#00D1FF]/30 bg-[#0B1624]/90 px-4 py-2 text-xs text-[#A7F5FF] shadow-[0_0_25px_rgba(0,209,255,0.25)] md:text-sm"
+              style={{ transform: "translateY(10px)" }}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D1FF]/60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00D1FF]" />
+              </span>
+              <MousePointerClick className="h-4 w-4 text-[#A7F5FF]" />
+              <span>Нажмите на модуль, чтобы увидеть подробности</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
