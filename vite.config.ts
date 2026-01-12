@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   // КЛЮЧЕВОЕ: относительная база, чтобы ресурсы искались по ./assets/...,
   // а не по /assets/... (иначе на GitHub Pages будет 404)
   base: './',
