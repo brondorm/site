@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HeroSection } from "./components/HeroSection";
 import { ProblemSolution } from "./components/ProblemSolution";
 import { HowItWorks } from "./components/HowItWorks";
+import { ManagerPanel } from "./components/ManagerPanel";
 import { Benefits } from "./components/Benefits";
 import { WhyNow } from "./components/WhyNow";
 import { FinalCTA } from "./components/FinalCTA";
@@ -14,6 +15,7 @@ function HomePage() {
       <HeroSection />
       <ProblemSolution />
       <HowItWorks />
+      <ManagerPanel />
       <Benefits />
       <WhyNow />
       <FinalCTA />
