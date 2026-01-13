@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function ProblemSolution() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-[#0C0C0C] to-[#1B1F2A]">
+    <section className="py-24 px-6 bg-gradient-to-b from-[#0C0C0C] to-[#1B1F2A] relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Problem */}
         <motion.div
@@ -103,7 +103,7 @@ export function ProblemSolution() {
 
           {/* Glowing effect */}
           <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-96 h-96 bg-[#00D1FF]/5 rounded-full blur-3xl"
+            className="absolute left-1/2 transform -translate-x-1/2 w-[90vw] h-[90vw] max-w-96 max-h-96 bg-[#00D1FF]/5 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.6, 0.3]

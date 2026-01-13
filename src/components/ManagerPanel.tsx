@@ -36,7 +36,7 @@ const panelFeatures = [
 ];
 
 const cardFaceBase =
-  "absolute inset-0 rounded-2xl border-[3px] border-white outline outline-1 outline-white backdrop-blur-sm";
+  "relative rounded-2xl border-[3px] border-white outline outline-1 outline-white backdrop-blur-sm";
 
 type CardOffset = {
   x: number;
@@ -72,9 +72,9 @@ export function ManagerPanel() {
     feature: (typeof panelFeatures)[number],
     index: number
   ) => (
-    <div className="relative w-full" style={{ minHeight: "320px" }}>
-      <div className={`${cardFaceBase} bg-[#151C2B]/80 p-8`}>
-        <div className="flex h-full flex-col">
+    <div className="w-full">
+      <div className={`${cardFaceBase} bg-[#151C2B]/80 p-6 sm:p-8`}>
+        <div className="flex min-h-[320px] flex-col">
           <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-[#A7F5FF]/70">
             <span>Модуль {String(index + 1).padStart(2, "0")}</span>
             <span className="text-[#00D1FF]/80">Telegram</span>
