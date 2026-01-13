@@ -218,29 +218,37 @@ export function ManagerPanel() {
 
         <div className="relative">
           <div className="grid md:grid-cols-2 gap-8">
-            {panelFeatures.map((feature, index) => (
+            {panelFeatures.map((feature, index) => {
+              const hasPreview = Boolean(feature.image);
+              return (
               <motion.button
                 key={feature.title}
                 type="button"
-                onClick={() =>
-                  activeIndex === index ? closeCard() : openCard(index)
-                }
+                onClick={() => {
+                  if (!hasPreview) {
+                    return;
+                  }
+                  activeIndex === index ? closeCard() : openCard(index);
+                }}
+                disabled={!hasPreview}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6 }}
+                whileHover={hasPreview ? { y: -6 } : undefined}
                 transition={{ duration: 0.8, delay: index * 0.15 }}
                 viewport={{ once: true }}
                 className={`group relative block w-full text-left transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D1FF]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0C0C0C] ${
                   activeIndex === index ? "opacity-0" : "opacity-100"
-                }`}
-                aria-pressed={activeIndex === index}
+                } ${hasPreview ? "" : "cursor-default"}`}
+                aria-pressed={hasPreview ? activeIndex === index : undefined}
+                aria-disabled={!hasPreview}
                 ref={(node) => {
                   cardRefs.current[index] = node;
                 }}
               >
                 {renderGridCard(feature, index)}
               </motion.button>
-            ))}
+              );
+            })}
           </div>
           {activeFeature && activeOffset && (
             <div

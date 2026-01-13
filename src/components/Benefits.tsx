@@ -1,30 +1,41 @@
 import { motion } from "motion/react";
-import { Clock, MessageCircle, Users, Shield } from "lucide-react";
+import { Plug, SlidersHorizontal, Timer, UserCheck, Zap } from "lucide-react";
 
 const benefits = [
   {
-    icon: Clock,
-    title: "Экономия до 60% времени на рутине",
-    description: "Автоматические ответы на типовые вопросы освобождают менеджеров для важных задач",
+    icon: SlidersHorizontal,
+    title: "Полный контроль над перепиской",
+    description:
+      "Вы контролируете логику ответов, сценарий диалога и момент передачи клиента. Бот не «фантазирует» и не выходит за рамки заданных правил.",
     gradient: "from-[#00D1FF] to-[#0099CC]"
   },
   {
-    icon: MessageCircle,
-    title: "Быстрые и точные ответы 24/7",
-    description: "Клиенты получают мгновенные ответы в любое время дня и ночи",
+    icon: Zap,
+    title: "Мгновенные ответы",
+    description:
+      "Бот отвечает за секунды, 24/7. Пока конкуренты отвечают «завтра», вы уже собираете заявку.",
     gradient: "from-[#A7F5FF] to-[#00D1FF]"
   },
   {
-    icon: Users,
-    title: "Никаких ошибок при передаче клиента менеджеру",
-    description: "Плавный переход от бота к живому специалисту с полным контекстом беседы",
+    icon: Plug,
+    title: "Безболезненное внедрение",
+    description:
+      "Бот работает в отдельном канале связи Telegram. Он не вмешивается в ваши CRM и бизнес-процессы напрямую.",
     gradient: "from-[#00D1FF] to-[#66E0FF]"
   },
   {
-    icon: Shield,
-    title: "Безопасная обработка данных",
-    description: "Вся информация обрабатывается в соответствии с современными стандартами безопасности",
+    icon: UserCheck,
+    title: "Идеальная передача клиента менеджеру",
+    description:
+      "Менеджер получает всю историю диалога, заполненный чек-лист и готовую заявку — без потерь информации и повторных вопросов.",
     gradient: "from-[#66E0FF] to-[#A7F5FF]"
+  },
+  {
+    icon: Timer,
+    title: "Реальная экономия времени",
+    description:
+      "До 60% рутинных вопросов закрываются автоматически — менеджеры занимаются продажами, а не перепиской.",
+    gradient: "from-[#00D1FF] to-[#00B3D1]"
   }
 ];
 
@@ -67,11 +78,8 @@ export function Benefits() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl text-white mb-6">
-            Ценность и выгоды
+            ИИ-менеджер, который работает под вашим контролем и не ломает текущие процессы
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Каждая функция разработана для максимальной эффективности вашей команды
-          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -143,9 +151,9 @@ export function Benefits() {
           className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {[
-            { value: "60%", label: "Экономия времени" },
-            { value: "24/7", label: "Доступность" },
-            { value: "100%", label: "Точность передачи" }
+            { value: "60%", label: "Экономия времени менеджера" },
+            { value: "24/7", label: "Бот всегда на связи" },
+            { value: "100%", label: "Передача контекста без искажений" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <motion.div

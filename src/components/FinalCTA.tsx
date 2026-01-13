@@ -189,9 +189,13 @@ export function FinalCTA() {
             { icon: Phone, text: "Поддержка 24/7" },
             { icon: Mail, text: "Быстрая интеграция" }
           ].map((item, index) => (
-            <div key={index} className="flex items-center justify-center gap-1 text-gray-400">
-              <item.icon className="w-5 h-5 text-[#00D1FF] flex-shrink-0" />
-              <span>{item.text}</span>
+            <div key={index} className="flex justify-center text-gray-400">
+              <div className="inline-flex items-start gap-2 text-left">
+                <span className="mt-0.5 flex h-5 w-5 items-center justify-center">
+                  <item.icon className="h-5 w-5 text-[#00D1FF]" />
+                </span>
+                <span className="leading-snug">{item.text}</span>
+              </div>
             </div>
           ))}
         </motion.div>
