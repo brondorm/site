@@ -4,7 +4,7 @@ import { MousePointerClick, X } from "lucide-react";
 
 import orderNewImage from "../assets/images/Order_ new.png";
 import historyImage from "../assets/images/history.png";
-import clientsImage from "../assets/images/clients.png";
+import cl1Image from "../assets/images/cl1.png";
 
 const panelFeatures = [
   {
@@ -25,7 +25,7 @@ const panelFeatures = [
     title: "База клиентов всегда с вами",
     description:
       "Список всех, кто писал боту, сортируется по активности. Нужно перенести данные в CRM? Просто нажмите «Экспорт», и бот подготовит файл со всеми контактами.",
-    image: clientsImage,
+    image: cl1Image,
     imageAlt: "Скрин интерфейса: база клиентов"
   },
   {
@@ -60,6 +60,8 @@ const safetySteps = [
 
 const cardFaceBase =
   "relative rounded-2xl border-[3px] border-white outline outline-1 outline-white backdrop-blur-sm";
+const screenshotImageClass =
+  "h-full w-full rounded-[28px] object-contain [clip-path:inset(0_round_28px)]";
 
 type CardOffset = {
   x: number;
@@ -154,7 +156,7 @@ export function ManagerPanel() {
               <img
                 src={feature.image}
                 alt={feature.imageAlt ?? "Скрин интерфейса"}
-                className="h-full w-full rounded-[28px] object-contain"
+                className={screenshotImageClass}
               />
             </div>
           ) : (
