@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "motion/react";
-import { MousePointerClick } from "lucide-react";
+import { MousePointerClick, X } from "lucide-react";
 
 import orderNewImage from "../assets/images/Order_ new.png";
 import historyImage from "../assets/images/history.png";
@@ -238,6 +238,17 @@ export function ManagerPanel() {
                 }}
                 onClick={(event) => event.stopPropagation()}
               >
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    closeCard();
+                  }}
+                  aria-label="Закрыть экран"
+                  className="group absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#00D1FF]/70 bg-[#071221]/75 text-[#9EE7FF] shadow-[0_0_18px_rgba(0,209,255,0.65),0_0_36px_rgba(0,209,255,0.45)] transition duration-300 hover:scale-105 hover:shadow-[0_0_26px_rgba(0,209,255,0.9),0_0_55px_rgba(0,209,255,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D1FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070D]"
+                >
+                  <X className="h-5 w-5 drop-shadow-[0_0_8px_rgba(0,209,255,0.9)]" />
+                </button>
                 {renderOverlayImage(activeFeature, activeIndex ?? 0)}
               </motion.div>
             </div>
