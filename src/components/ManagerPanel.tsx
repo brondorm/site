@@ -35,6 +35,29 @@ const panelFeatures = [
   }
 ];
 
+const safetySteps = [
+  {
+    title: "Проверка знаний",
+    description:
+      "Бот ищет ответ в вашей базе. Если точного совпадения нет, он отправляет запрос к менеджеру. Никаких галлюцинаций."
+  },
+  {
+    title: "Создание «Тикета помощи»",
+    description:
+      "Бот честно пишет клиенту: «Уточняю этот момент у специалиста, одну минуту». В ту же секунду менеджер получает тикет с пометкой «Сложный вопрос»."
+  },
+  {
+    title: "Бесшовный перехват",
+    description:
+      "Менеджер пишет ответ в свою панель управления. Бот пересылает этот ответ клиенту. Для клиента это выглядит как непрерывный диалог."
+  },
+  {
+    title: "Превращаем тикеты в опыт (Smart Learning)",
+    description:
+      "Все вопросы, на которые отвечали менеджеры, сохраняются в истории обработанных тикетов."
+  }
+];
+
 const cardFaceBase =
   "relative rounded-2xl border-[3px] border-white outline outline-1 outline-white backdrop-blur-sm";
 
@@ -272,6 +295,93 @@ export function ManagerPanel() {
               <span>Нажмите на модуль, чтобы увидеть подробности</span>
             </div>
           </motion.div>
+        </div>
+
+        <div className="mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h3 className="text-3xl md:text-4xl text-white mb-4">
+              «А что, если ИИ-агент не знает ответа? Он начнет фантазировать?»
+            </h3>
+            <p className="text-lg md:text-xl text-[#A7F5FF] font-medium mb-6">
+              Исключено. Мы внедрили механизм защиты от галлюцинаций.
+            </p>
+            <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Многие боятся, что нейросеть начнет придумывать несуществующие
+              услуги или цены, чтобы угодить клиенту. В ClickToFuture это
+              технически невозможно.
+            </p>
+            <p className="mt-4 text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Мы настроили систему так, что если уверенность ИИ в ответе ниже
+              80%, он не рискует репутацией компании, а мгновенно переводит
+              вопрос на человека в виде нового Тикета.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#00D1FF]/30 bg-[#0B1624]/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#A7F5FF]">
+              Как это работает:
+            </span>
+          </motion.div>
+
+          <div className="relative mt-12">
+            <div className="absolute bottom-0 left-6 top-0 border-l border-dashed border-[#00D1FF]/40 md:hidden" />
+            <div className="absolute top-0 bottom-0 left-1/2 hidden w-px border-l border-dashed border-[#00D1FF]/40 md:block" />
+
+            <div className="relative flex flex-col gap-10 md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-12">
+              {safetySteps.map((step, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: index * 0.12 }}
+                    viewport={{ once: true }}
+                    className={`relative pl-10 md:pl-0 md:max-w-md ${
+                      isLeft
+                        ? "md:col-start-1 md:justify-self-end"
+                        : "md:col-start-2 md:justify-self-start md:mt-10"
+                    }`}
+                  >
+                    <span
+                      className={`absolute top-6 left-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#00D1FF]/60 bg-[#00D1FF] shadow-[0_0_18px_rgba(0,209,255,0.6)] md:top-1/2 md:left-auto md:translate-x-0 ${
+                        isLeft ? "md:-right-8" : "md:-left-8"
+                      }`}
+                      style={{ width: "14px", height: "14px" }}
+                    />
+                    <div className="w-full rounded-2xl border border-[#00D1FF]/20 bg-[#111827]/80 p-6 md:p-7 backdrop-blur-sm">
+                      <div className="text-xs uppercase tracking-[0.3em] text-[#A7F5FF]/70">
+                        Шаг {String(index + 1).padStart(2, "0")}
+                      </div>
+                      <h4 className="mt-3 text-xl text-white">
+                        {step.title}
+                      </h4>
+                      <p className="mt-3 text-sm md:text-base text-gray-300 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          <p className="mt-8 text-center text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            У вас есть возможность проанализировать наиболее популярные вопросы
+            и обновить базу данных, чтобы система стала еще эффективнее.
+          </p>
         </div>
       </div>
     </section>
