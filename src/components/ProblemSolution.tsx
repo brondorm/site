@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function ProblemSolution() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-[#0C0C0C] to-[#1B1F2A]">
+    <section className="py-24 px-6 bg-gradient-to-b from-[#0C0C0C] to-[#1B1F2A] relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Problem */}
         <motion.div
@@ -80,17 +80,30 @@ export function ProblemSolution() {
           
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl text-white mb-8 text-center">
-              AI-бот, который берёт на себя однотипные запросы.
+              Контур первичной обработки клиентов
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Обучившись на ваших данных, он отвечает на типовые запросы и подключает менеджера только когда нужно.
-              Результат — команда дышит, клиенты довольны, бизнес растёт.
+            <p className="text-lg text-gray-400 leading-relaxed">
+              Каждое звено выстроено для быстрой и аккуратной работы с запросами первой линии.
             </p>
+
+            <ul className="mt-8 space-y-4 text-left text-xl text-gray-300">
+              {[
+                "Ответы на типовые вопросы по вашей базе знаний.",
+                "Сбор заявки по чек-листу (без потерь данных).",
+                "Модуль ТН ВЭД: помогает клиенту и менеджеру быстрее пройти этап классификации.",
+                "Передача менеджеру с полным контекстом: переписка, заполненные поля заявки, статус."
+              ].map((item, idx) => (
+                <li key={idx} className="flex gap-3">
+                  <span className="text-[#00D1FF] text-2xl leading-none">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Glowing effect */}
           <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-96 h-96 bg-[#00D1FF]/5 rounded-full blur-3xl"
+            className="absolute left-1/2 transform -translate-x-1/2 w-[90vw] h-[90vw] max-w-96 max-h-96 bg-[#00D1FF]/5 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.6, 0.3]
