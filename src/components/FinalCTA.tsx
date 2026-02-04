@@ -9,6 +9,7 @@ import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 export function FinalCTA() {
+  const [showFooterPhone, setShowFooterPhone] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [contactMethod, setContactMethod] = useState("");
@@ -160,19 +161,40 @@ export function FinalCTA() {
           </p>
 
           <motion.div
-            className="flex justify-center items-center"
+            className="flex flex-col sm:flex-row justify-center items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)] group text-[16px]"
               onClick={() => setIsModalOpen(true)}
             >
               Запросить демо-доступ
             </Button>
+
+            {!showFooterPhone ? (
+              <Button
+                size="lg"
+                data-goal="phone-click"
+                className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)] text-[16px]"
+                onClick={() => setShowFooterPhone(true)}
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Позвонить нам
+              </Button>
+            ) : (
+              <a
+                href="tel:+79999999999"
+                data-goal="phone-click"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-3 text-lg rounded-md font-medium transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)]"
+              >
+                <Phone className="w-5 h-5" />
+                +7 (999) 999-99-99
+              </a>
+            )}
           </motion.div>
         </motion.div>
 
