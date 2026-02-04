@@ -5,6 +5,7 @@ import { MousePointerClick, X } from "lucide-react";
 import orderNewImage from "../assets/images/Order_ new.png";
 import historyImage from "../assets/images/history.png";
 import cl1Image from "../assets/images/cl1.png";
+import managerPanelImage from "../assets/images/manager-panel.png";
 
 const panelFeatures = [
   {
@@ -31,7 +32,9 @@ const panelFeatures = [
   {
     title: "Аналитика и контроль",
     description:
-      "Следите за статистикой обращений, управляйте списком менеджеров и анализируйте, какие вопросы задают клиенты чаще всего, чтобы дообучать базу знаний."
+      "Следите за статистикой обращений, управляйте списком менеджеров и анализируйте, какие вопросы задают клиенты чаще всего, чтобы дообучать базу знаний.",
+    image: managerPanelImage,
+    imageAlt: "Скрин интерфейса: панель управления"
   }
 ];
 
@@ -98,7 +101,7 @@ export function ManagerPanel() {
     index: number
   ) => (
     <div className="w-full">
-      <div className={`${cardFaceBase} bg-[#151C2B]/80 p-6 sm:p-8`}>
+      <div className={`${cardFaceBase} bg-[#151C2B]/80 p-6 sm:p-8 transition-all duration-300 group-hover:border-[#00D1FF]/60 group-hover:shadow-[0_0_24px_rgba(0,209,255,0.25)] group-hover:scale-[1.02]`}>
         <div className="flex min-h-[320px] flex-col">
           <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-[#A7F5FF]/70">
             <span>Модуль {String(index + 1).padStart(2, "0")}</span>
@@ -217,6 +220,23 @@ export function ManagerPanel() {
         </motion.div>
 
         <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="flex items-center gap-2.5 rounded-full border border-[#00D1FF]/40 bg-[#0B1624]/90 px-5 py-2.5 text-sm text-[#A7F5FF] shadow-[0_0_30px_rgba(0,209,255,0.3)] md:text-base">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D1FF]/60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#00D1FF]" />
+              </span>
+              <MousePointerClick className="h-5 w-5 text-[#A7F5FF]" />
+              <span>Нажмите на модуль, чтобы увидеть подробности</span>
+            </div>
+          </motion.div>
+
           <div className="grid md:grid-cols-2 gap-8">
             {panelFeatures.map((feature, index) => {
               const hasPreview = Boolean(feature.image);
@@ -238,7 +258,7 @@ export function ManagerPanel() {
                 viewport={{ once: true }}
                 className={`group relative block w-full text-left transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D1FF]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0C0C0C] ${
                   activeIndex === index ? "opacity-0" : "opacity-100"
-                } ${hasPreview ? "" : "cursor-default"}`}
+                } ${hasPreview ? "cursor-pointer" : "cursor-default"}`}
                 aria-pressed={hasPreview ? activeIndex === index : undefined}
                 aria-disabled={!hasPreview}
                 ref={(node) => {
@@ -286,25 +306,6 @@ export function ManagerPanel() {
               </motion.div>
             </div>
           )}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-10 flex justify-center"
-          >
-            <div
-              className="pointer-events-none flex items-center gap-2 rounded-full border border-[#00D1FF]/30 bg-[#0B1624]/90 px-4 py-2 text-xs text-[#A7F5FF] shadow-[0_0_25px_rgba(0,209,255,0.25)] md:text-sm"
-              style={{ transform: "translateY(10px)" }}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D1FF]/60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00D1FF]" />
-              </span>
-              <MousePointerClick className="h-4 w-4 text-[#A7F5FF]" />
-              <span>Нажмите на модуль, чтобы увидеть подробности</span>
-            </div>
-          </motion.div>
         </div>
 
         <div className="mt-24">
