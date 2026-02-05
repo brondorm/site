@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState } from "react";
 import { Phone } from "lucide-react";
 
@@ -9,15 +8,8 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <ImageWithFallback 
-          src="https://images.unsplash.com/photo-1756908992154-c8a89f5e517f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neSUyMG5ldHdvcmt8ZW58MXx8fHwxNzU5NzYxMzYzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-          alt="Futuristic network background"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C]/80 via-[#0C0C0C]/60 to-[#0C0C0C]/90" />
-      </div>
+      {/* Background Gradient */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0C0C0C] via-[#1a1a2e] to-[#0C0C0C]" />
 
       {/* Animated Grid Pattern */}
       <div className="absolute inset-0 z-10">

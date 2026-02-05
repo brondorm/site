@@ -1,19 +1,9 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Brain, Cpu, Zap } from "lucide-react";
 
 export function WhyNow() {
   return (
-    <section className="py-24 px-6 bg-[#0C0C0C] relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <ImageWithFallback 
-          src="https://images.unsplash.com/photo-1703384327813-7f090a302e14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGhvbG9ncmFwaGljJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NTk3NjEzNjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-          alt="Holographic technology background"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C]/90 via-[#0C0C0C]/70 to-[#0C0C0C]/90" />
-      </div>
+    <section className="py-24 px-6 bg-gradient-to-br from-[#0C0C0C] via-[#16213e] to-[#0C0C0C] relative overflow-hidden">
 
       {/* Animated Light Rays */}
       <motion.div

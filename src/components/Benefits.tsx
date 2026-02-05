@@ -122,7 +122,7 @@ export function Benefits() {
 
                 {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl"
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background: `linear-gradient(45deg, transparent, rgba(0,209,255,0.1), transparent)`,
                     backgroundSize: '200% 200%'
@@ -135,7 +135,6 @@ export function Benefits() {
                     repeat: Infinity,
                     ease: "linear"
                   }}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
               </div>
             </motion.div>
