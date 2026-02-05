@@ -186,14 +186,13 @@ export function FinalCTA() {
                 Позвонить нам
               </Button>
             ) : (
-              <a
-                href="tel:+79663114713"
+              <span
                 data-goal="phone-click"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-3 text-lg rounded-md font-medium transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)]"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00D1FF] to-[#0099CC] text-black px-12 py-3 text-lg rounded-md font-medium shadow-[0_0_30px_rgba(0,209,255,0.3)]"
               >
                 <Phone className="w-5 h-5" />
-                +7 (966) 311-47-13
-              </a>
+                здесь будет наш номер
+              </span>
             )}
           </motion.div>
         </motion.div>
