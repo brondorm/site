@@ -1,11 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
-import { useState } from "react";
-import { Phone } from "lucide-react";
 
 export function HeroSection() {
-  const [showPhone, setShowPhone] = useState(false);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
       {/* Background Gradient */}
@@ -69,33 +65,6 @@ export function HeroSection() {
           >
             Записаться на демо
           </Button>
-
-          <span className="block text-gray-400 text-base my-4">или</span>
-
-          {!showPhone ? (
-            <Button
-              size="lg"
-              data-goal="phone-click"
-              className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)]"
-              onClick={() => setShowPhone(true)}
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Позвонить
-            </Button>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-            >
-              <span
-                data-goal="phone-click"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00D1FF] to-[#0099CC] text-black px-12 py-3 text-lg rounded-md font-medium shadow-[0_0_30px_rgba(0,209,255,0.3)]"
-              >
-                <Phone className="w-5 h-5" />
-                здесь будет наш номер
-              </span>
-            </motion.div>
-          )}
         </motion.div>
 
         {/* Floating Elements */}

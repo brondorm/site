@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion } from "motion/react";
-import { MousePointerClick, X } from "lucide-react";
+import { MousePointerClick, X, Phone } from "lucide-react";
+import { Button } from "./ui/button";
 
 import orderNewImage from "../assets/images/Order_ new.png";
 import historyImage from "../assets/images/history.png";
@@ -307,6 +308,24 @@ export function ManagerPanel() {
             </div>
           )}
         </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 flex justify-center"
+        >
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)] text-[16px]"
+            onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            Запросить звонок
+          </Button>
+        </motion.div>
 
         <div className="mt-24">
           <motion.div

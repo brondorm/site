@@ -8,6 +8,7 @@ import { WhyNow } from "./components/WhyNow";
 import { FinalCTA } from "./components/FinalCTA";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
+import { ThanksPage } from "./components/ThanksPage";
 
 function HomePage() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/thanks" element={<ThanksPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </Router>
