@@ -2,9 +2,24 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import fs from 'fs'
+
+// Плагин для GitHub Pages: копирует index.html → 404.html,
+// чтобы SPA-маршруты (например /thanks) работали при прямом заходе
+function githubPages404Plugin() {
+  return {
+    name: 'github-pages-404',
+    closeBundle() {
+      const outDir = 'docs'
+      const src = path.resolve(__dirname, outDir, 'index.html')
+      const dest = path.resolve(__dirname, outDir, '404.html')
+      fs.copyFileSync(src, dest)
+    },
+  }
+}
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), githubPages404Plugin()],
   // КЛЮЧЕВОЕ: относительная база, чтобы ресурсы искались по ./assets/...,
   // а не по /assets/... (иначе на GitHub Pages будет 404)
   base: './',
