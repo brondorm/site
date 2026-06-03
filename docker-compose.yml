@@ -1,0 +1,24 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: site-container
+    restart: unless-stopped
+    expose:
+      - "4444"
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.click.rule=Host(`clicktofuture.ru`,`www.clicktofuture.ru`)"
+      - "traefik.http.routers.click.entrypoints=web,websecure"
+      - "traefik.http.routers.click.tls=true"
+      - "traefik.http.routers.click.tls.certresolver=le"
+      - "traefik.http.services.click.loadbalancer.server.port=4444"
+
+networks:
+  proxy:
+    external: true
+    name: proxy

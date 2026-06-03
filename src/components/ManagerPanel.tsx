@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { MousePointerClick, X, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 
-import orderNewImage from "../assets/images/Order_ new.png";
+import orderNewImage from "../assets/images/order-new.png";
 import historyImage from "../assets/images/history.png";
 import cl1Image from "../assets/images/cl1.png";
 import managerPanelImage from "../assets/images/manager-panel.png";
