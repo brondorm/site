@@ -24,7 +24,7 @@ export function AboutUs() {
         >
           Про нас
         </h2>
-        <p className="text-2xl md:text-3xl text-gray-300 leading-relaxed">
+        <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 leading-relaxed">
           Работая в крупных IT-компаниях, мы начали замечать, как много бизнес-процессов можно
           автоматизировать с помощью искусственного интеллекта. Так многие из нас начали путь
           внедрения новейших технологий в бизнес. Вскоре появился проект{" "}

@@ -105,9 +105,9 @@ export function WhyNow() {
                 ease: "easeInOut"
               }}
             />
-            <div className="relative bg-[#1B1F2A]/80 backdrop-blur-sm border border-[#00D1FF]/30 rounded-2xl px-12 py-8">
-              <motion.p 
-                className="text-2xl md:text-3xl text-transparent bg-gradient-to-r from-white via-[#A7F5FF] to-[#00D1FF] bg-clip-text"
+            <div className="relative bg-[#1B1F2A]/80 backdrop-blur-sm border border-[#00D1FF]/30 rounded-2xl px-6 py-6 sm:px-12 sm:py-8">
+              <motion.p
+                className="text-xl sm:text-2xl md:text-3xl text-transparent bg-gradient-to-r from-white via-[#A7F5FF] to-[#00D1FF] bg-clip-text"
                 style={{ lineHeight: 1.4 }}
               >
                 "Будущее уже здесь, в каждом автоматизированном ответе."

@@ -5,10 +5,6 @@ import { Button } from "../ui/button";
 import { fadeUp, staggerContainer, viewportOnce } from "../../lib/motion";
 
 export function ChoosePath() {
-  // «Обсудить задачу» пока открывает форму захвата лида — отдельной страницы
-  // «Внедрение под ключ» ещё нет (наполним позже).
-  const openLeadModal = () => window.dispatchEvent(new Event("openDemoModal"));
-
   return (
     <section
       id="choose"
@@ -71,11 +67,13 @@ export function ChoosePath() {
               с нуля. От аудита до запуска.
             </p>
             <Button
+              asChild
               size="lg"
-              onClick={openLeadModal}
               className="self-start bg-transparent border border-[#00D1FF]/40 text-[#00D1FF] hover:bg-[#00D1FF]/10 hover:border-[#00D1FF] transition-all duration-300"
             >
-              Обсудить задачу <ArrowRight className="w-4 h-4" />
+              <Link to="/custom">
+                Как мы внедряем <ArrowRight className="w-4 h-4" />
+              </Link>
             </Button>
           </motion.div>
         </motion.div>

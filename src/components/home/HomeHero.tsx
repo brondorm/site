@@ -87,7 +87,7 @@ export function HomeHero() {
       >
         <motion.h1
           variants={fadeUp}
-          className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-white via-[#A7F5FF] to-[#00D1FF] bg-clip-text text-transparent"
+          className="text-4xl sm:text-5xl md:text-7xl mb-6 bg-gradient-to-r from-white via-[#A7F5FF] to-[#00D1FF] bg-clip-text text-transparent"
           style={{ lineHeight: 1.1 }}
         >
           Находим процессы, которые съедают время сотрудников, и закрываем их с помощью ИИ
@@ -97,7 +97,7 @@ export function HomeHero() {
           <Button
             size="lg"
             onClick={openLeadModal}
-            className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)]"
+            className="h-auto max-w-full whitespace-normal bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-6 sm:px-12 py-4 sm:py-6 text-base sm:text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)]"
           >
             Получить бесплатный разбор процессов
           </Button>

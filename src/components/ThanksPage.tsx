@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 
 export function ThanksPage() {
   return (
-    <div className="min-h-screen bg-[#0C0C0C] text-white flex flex-col">
+    <div className="min-h-screen bg-[#0C0C0C] text-white flex flex-col overflow-x-hidden">
       {/* Header */}
       <header className="border-b border-white/10 bg-[#0C0C0C]/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4">
+        <div className="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-3 sm:gap-4 min-w-0">
             <motion.div
-              className="w-12 h-12 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.4)]"
+              className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.4)]"
               whileHover={{ scale: 1.1 }}
             >
-              <MousePointerClick className="w-6 h-6 text-black" />
+              <MousePointerClick className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
             </motion.div>
-            <span className="text-2xl text-white">ClickToFuture</span>
+            <span className="text-lg sm:text-2xl text-white truncate">ClickToFuture</span>
           </Link>
 
           <Link to="/">

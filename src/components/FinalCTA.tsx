@@ -186,7 +186,7 @@ export function FinalCTA({
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)] group text-[16px]"
+              className="h-auto max-w-full whitespace-normal bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-6 sm:px-12 py-4 sm:py-6 text-base sm:text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)] group"
               onClick={() => setIsModalOpen(true)}
             >
               {buttonLabel}
@@ -206,12 +206,12 @@ export function FinalCTA({
             {/* Logo */}
             <div className="flex items-center gap-4">
               <motion.div
-                className="w-16 h-16 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.4)]"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.4)]"
                 whileHover={{ scale: 1.1 }}
               >
-                <MousePointerClick className="w-9 h-9 text-black" />
+                <MousePointerClick className="w-7 h-7 sm:w-9 sm:h-9 text-black" />
               </motion.div>
-              <span className="text-4xl text-white">ClickToFuture</span>
+              <span className="text-3xl sm:text-4xl text-white">ClickToFuture</span>
             </div>
 
             {/* Links */}
