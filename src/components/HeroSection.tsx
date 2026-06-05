@@ -1,4 +1,6 @@
 import { motion } from "motion/react";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 
 export function HeroSection() {
@@ -6,6 +8,22 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0C0C0C] via-[#1a1a2e] to-[#0C0C0C]" />
+
+      {/* Back to home */}
+      <motion.div
+        className="absolute top-6 left-6 z-30"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#00D1FF]/40 text-[#00D1FF] hover:bg-[#00D1FF]/10 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          На главную
+        </Link>
+      </motion.div>
 
       {/* Animated Grid Pattern */}
       <div className="absolute inset-0 z-10">
@@ -36,11 +54,11 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
+          <motion.h1
             className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-white via-[#A7F5FF] to-[#00D1FF] bg-clip-text text-transparent"
             style={{ lineHeight: 1.1 }}
           >
-            Будущее клиентской поддержки уже здесь
+            AI-менеджер
           </motion.h1>
         </motion.div>
 
@@ -50,7 +68,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          AI-помощник для первой линии: отвечает на типовые вопросы, собирает заявку по чек-листу и подключает менеджера только когда нужно.
+          Агент для первой линии: отвечает на типовые вопросы, собирает заявку по чек-листу и подключает менеджера только когда нужно.
         </motion.p>
 
         <motion.div
@@ -66,33 +84,6 @@ export function HeroSection() {
             Записаться на демо
           </Button>
         </motion.div>
-
-        {/* Floating Elements */}
-        <motion.div
-          className="absolute top-20 left-10 w-2 h-2 bg-[#00D1FF] rounded-full"
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.5, 1, 0.5]
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-32 right-16 w-3 h-3 bg-[#A7F5FF] rounded-full"
-          animate={{
-            y: [0, 15, 0],
-            opacity: [0.3, 0.8, 0.3]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
       </div>
     </section>
   );

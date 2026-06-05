@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 export function ProblemSolution() {
   return (
@@ -60,9 +60,9 @@ export function ProblemSolution() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="w-16 h-16 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,209,255,0.4)] rotate-90"
+            className="w-16 h-16 bg-gradient-to-r from-[#00D1FF] to-[#A7F5FF] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,209,255,0.4)]"
           >
-            <ArrowRight className="w-8 h-8 text-black" />
+            <ArrowDown className="w-8 h-8 text-black" />
           </motion.div>
         </motion.div>
 

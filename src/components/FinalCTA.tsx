@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
-import { ArrowRight, Mail, Phone, Shield, MousePointerClick, X } from "lucide-react";
+import { MousePointerClick, X } from "lucide-react";
 import logoImage from "figma:asset/e670149348a17ae91dd5f254be5036d57e752682.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -8,7 +8,17 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
-export function FinalCTA() {
+interface FinalCTAProps {
+  heading?: string;
+  description?: string;
+  buttonLabel?: string;
+}
+
+export function FinalCTA({
+  heading = "Попробуй, как работает бот",
+  description = "Протестируй демо и посмотри, как легко можно разгрузить свою команду.",
+  buttonLabel = "Запросить демо-доступ",
+}: FinalCTAProps = {}) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -157,14 +167,14 @@ export function FinalCTA() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-6xl text-white mb-8"
             style={{ lineHeight: 1.1 }}
           >
-            Попробуй, как работает бот
+            {heading}
           </motion.h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Протестируй демо и посмотри, как легко можно разгрузить свою команду.
+            {description}
           </p>
 
           <motion.div
@@ -179,33 +189,9 @@ export function FinalCTA() {
               className="bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black px-12 py-6 text-lg transition-all duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)] hover:shadow-[0_0_50px_rgba(0,209,255,0.5)] group text-[16px]"
               onClick={() => setIsModalOpen(true)}
             >
-              Запросить демо-доступ
+              {buttonLabel}
             </Button>
           </motion.div>
-        </motion.div>
-
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-        >
-          {[
-            { icon: Shield, text: "Безопасность данных гарантирована" },
-            { icon: Phone, text: "Поддержка 24/7" },
-            { icon: Mail, text: "Быстрая интеграция" }
-          ].map((item, index) => (
-            <div key={index} className="flex justify-center text-gray-400">
-              <div className="inline-flex items-start gap-2 text-left">
-                <span className="mt-0.5 flex h-5 w-5 items-center justify-center">
-                  <item.icon className="h-5 w-5 text-[#00D1FF]" />
-                </span>
-                <span className="leading-snug">{item.text}</span>
-              </div>
-            </div>
-          ))}
         </motion.div>
 
         {/* Footer */}
