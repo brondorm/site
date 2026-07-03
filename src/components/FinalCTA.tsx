@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { Checkbox } from "./ui/checkbox";
 
 interface FinalCTAProps {
   heading?: string;
@@ -32,6 +33,7 @@ export function FinalCTA({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   // Listen for custom event to open modal from other components
   useEffect(() => {
@@ -66,6 +68,11 @@ export function FinalCTA({
 
     if (!contactMethod) {
       setSubmitError("Пожалуйста, выберите способ связи");
+      return;
+    }
+
+    if (!consent) {
+      setSubmitError("Необходимо согласие на обработку персональных данных");
       return;
     }
 
@@ -133,6 +140,7 @@ export function FinalCTA({
     setFormData({ name: "", telegram: "", email: "", phone: "" });
     setSubmitError("");
     setSubmitSuccess(false);
+    setConsent(false);
   };
 
   return (
@@ -482,11 +490,36 @@ export function FinalCTA({
                           </motion.div>
                         )}
 
+                        {/* Consent */}
+                        <div className="flex flex-col gap-1.5">
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              id="consent"
+                              checked={consent}
+                              onCheckedChange={(checked) => setConsent(checked === true)}
+                              className="shrink-0 border-[#00D1FF]/40 data-[state=checked]:bg-[#00D1FF] data-[state=checked]:border-[#00D1FF] data-[state=checked]:text-black"
+                            />
+                            <Label htmlFor="consent" className="text-sm text-gray-400 font-normal cursor-pointer">
+                              Я даю согласие на обработку персональных данных
+                            </Label>
+                          </div>
+                          <p className="text-sm text-gray-500 pl-7">
+                            Принимаю{" "}
+                            <Link to="/privacy" className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors">
+                              Политику конфиденциальности
+                            </Link>
+                            {" "}и{" "}
+                            <Link to="/terms" className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors">
+                              Пользовательское соглашение
+                            </Link>
+                          </p>
+                        </div>
+
                         {/* Submit Button */}
                         <Button
                           type="submit"
                           size="lg"
-                          disabled={!contactMethod || isSubmitting}
+                          disabled={!contactMethod || !consent || isSubmitting}
                           className="w-full bg-gradient-to-r from-[#00D1FF] to-[#0099CC] hover:from-[#A7F5FF] hover:to-[#00D1FF] text-black transition-all duration-300 shadow-[0_0_20px_rgba(0,209,255,0.3)] hover:shadow-[0_0_30px_rgba(0,209,255,0.5)] disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {isSubmitting ? "Отправляем..." : "Отправить"}

@@ -12,6 +12,7 @@ import { TermsOfService } from "./components/TermsOfService";
 import { ThanksPage } from "./components/ThanksPage";
 import { Home } from "./components/home/Home";
 import { TurnkeyPage } from "./components/turnkey/TurnkeyPage";
+import { CasesPage } from "./components/cases/CasesPage";
 
 // Лендинг продукта «ИИ менеджер» — конверсионная страница (минимум навигации).
 function AiManagerPage() {
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/ai-manager" element={<AiManagerPage />} />
         <Route path="/custom" element={<TurnkeyPage />} />
+        <Route path="/cases" element={<CasesPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/thanks" element={<ThanksPage />} />

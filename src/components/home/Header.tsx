@@ -12,11 +12,11 @@ import {
 } from "../ui/sheet";
 
 // Плоское меню верхнего уровня (без выпадающих списков).
-// Пункт «Кейсы» появится здесь, когда будет готова его страница.
 const navLinks = [
   { label: "Главная", to: "/" },
   { label: "ИИ менеджер", to: "/ai-manager" },
   { label: "Внедрение под ключ", to: "/custom" },
+  { label: "Кейсы", to: "/cases" },
 ];
 
 export function Header() {

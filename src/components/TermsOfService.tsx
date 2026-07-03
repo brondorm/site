@@ -43,7 +43,7 @@ export function TermsOfService() {
           </h1>
           
           <p className="text-gray-400 mb-12">
-            <strong>Дата последнего обновления:</strong> 09 октября 2025 г.
+            <strong>Дата последнего обновления:</strong> 06 июня 2026 г.
           </p>
 
           <div className="prose prose-invert max-w-none space-y-8">
@@ -181,7 +181,7 @@ export function TermsOfService() {
                 <p>ОГРНИП 324774600667292</p>
                 <p>
                   E-mail:{" "}
-                  <a href="mailto:support@clicktofuture.ru" className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors">
+                  <a href="mailto:clicktofuture@yandex.com" className="text-[#00D1FF] hover:text-[#A7F5FF] transition-colors">
                     clicktofuture@yandex.com
                   </a>
                 </p>

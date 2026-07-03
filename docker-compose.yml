@@ -12,10 +12,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
-      - "traefik.http.routers.click.rule=Host(`clicktofuture.ru`,`www.clicktofuture.ru`)"
+      - "traefik.http.routers.click.rule=Host(`clicktofuture.ru`) || Host(`www.clicktofuture.ru`)"
       - "traefik.http.routers.click.entrypoints=web,websecure"
       - "traefik.http.routers.click.tls=true"
-      - "traefik.http.routers.click.tls.certresolver=le"
+      - "traefik.http.routers.click.tls.certresolver=mytlschallenge"
       - "traefik.http.services.click.loadbalancer.server.port=4444"
 
 networks:
