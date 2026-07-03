@@ -9,6 +9,9 @@ import {
   Sparkles,
   TrendingUp,
   Camera,
+  ZoomIn,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Header } from "../home/Header";
 import { FinalCTA } from "../FinalCTA";
@@ -221,10 +224,119 @@ const sections = [
   { key: "result", label: "Результат", Icon: TrendingUp },
 ] as const;
 
+// ─── Лайтбокс: фото на весь экран, чтобы разглядеть мелкие скрины ───
+// Открывается кликом по фото в галерее. Листается стрелками/клавишами,
+// закрывается по клику вне фото, крестику или Esc. Слушатель Esc — в фазе
+// capture, чтобы перехватить его раньше, чем CaseModal закроет саму карточку.
+function Lightbox({
+  images,
+  index,
+  onIndexChange,
+  onClose,
+}: {
+  images: CaseImage[];
+  index: number;
+  onIndexChange: (i: number) => void;
+  onClose: () => void;
+}) {
+  const go = (dir: number) =>
+    onIndexChange((index + dir + images.length) % images.length);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopImmediatePropagation();
+        onClose();
+      } else if (e.key === "ArrowRight") {
+        go(1);
+      } else if (e.key === "ArrowLeft") {
+        go(-1);
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  });
+
+  const img = images[index];
+  const navBtn =
+    "flex h-11 w-11 items-center justify-center rounded-full border border-[#00D1FF]/40 bg-[#0B1624]/85 text-[#00D1FF] shadow-[0_0_18px_rgba(0,209,255,0.25)] transition-colors hover:bg-[#00D1FF]/15 hover:text-white";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[60] flex flex-col bg-black/95 p-4 sm:p-6"
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Закрыть"
+        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-gray-300 transition-colors hover:bg-white/10 hover:text-white sm:right-6 sm:top-6"
+      >
+        <X className="h-5 w-5" />
+      </button>
+
+      <div className="flex flex-1 items-center justify-center gap-3 overflow-hidden sm:gap-5">
+        {images.length > 1 && (
+          <button
+            type="button"
+            aria-label="Предыдущее фото"
+            onClick={(e) => {
+              e.stopPropagation();
+              go(-1);
+            }}
+            className={navBtn}
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+        )}
+
+        <motion.img
+          key={img.src}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.2, ease: easeOut }}
+          src={img.src}
+          alt={img.alt}
+          draggable={false}
+          onClick={(e) => e.stopPropagation()}
+          className="max-h-full max-w-full select-none rounded-xl object-contain shadow-[0_0_60px_rgba(0,0,0,0.6)]"
+        />
+
+        {images.length > 1 && (
+          <button
+            type="button"
+            aria-label="Следующее фото"
+            onClick={(e) => {
+              e.stopPropagation();
+              go(1);
+            }}
+            className={navBtn}
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        )}
+      </div>
+
+      <p className="mt-4 shrink-0 text-center text-sm text-gray-300">
+        {img.alt}
+        {images.length > 1 && (
+          <span className="ml-2 text-gray-500">
+            {index + 1} / {images.length}
+          </span>
+        )}
+      </p>
+    </motion.div>
+  );
+}
+
 // ─── Просмотрщик скриншотов кейса: одно фото крупно + листание (свайп/стрелки/точки) ───
 function CaseGallery({ images }: { images: CaseImage[] }) {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   useEffect(() => {
     if (!api) return;
@@ -244,16 +356,26 @@ function CaseGallery({ images }: { images: CaseImage[] }) {
       <h3 className="mb-4 text-lg text-white">Как это выглядит</h3>
       <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
         <CarouselContent>
-          {images.map((img) => (
+          {images.map((img, i) => (
             <CarouselItem key={img.src}>
               <div className="flex h-[58vh] max-h-[520px] items-center justify-center rounded-2xl border border-[#00D1FF]/20 bg-[#0C0C0C]/60 p-3">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  draggable={false}
-                  className="max-h-full w-auto max-w-full select-none rounded-xl object-contain"
-                />
+                <button
+                  type="button"
+                  onClick={() => setLightbox(i)}
+                  aria-label="Открыть фото на весь экран"
+                  className="group relative flex h-full w-full cursor-zoom-in items-center justify-center focus:outline-none"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    draggable={false}
+                    className="max-h-full w-auto max-w-full select-none rounded-xl object-contain"
+                  />
+                  <span className="pointer-events-none absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/55 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                    <ZoomIn className="h-5 w-5" />
+                  </span>
+                </button>
               </div>
             </CarouselItem>
           ))}
@@ -262,10 +384,18 @@ function CaseGallery({ images }: { images: CaseImage[] }) {
         <CarouselNext className={`right-3 ${navBtn}`} />
       </Carousel>
 
-      {/* Подпись текущего скрина */}
+      {/* Подпись текущего скрина + подсказка про увеличение */}
       <p className="mt-3 text-center text-sm text-gray-400">
         {images[current]?.alt}
       </p>
+      <button
+        type="button"
+        onClick={() => setLightbox(current)}
+        className="mx-auto mt-1 flex items-center gap-1.5 text-xs text-[#00D1FF]/80 transition-colors hover:text-[#00D1FF]"
+      >
+        <ZoomIn className="h-3.5 w-3.5" />
+        Нажмите на фото, чтобы увеличить
+      </button>
 
       {/* Точки-индикаторы / переход к слайду */}
       <div className="mt-4 flex justify-center gap-2">
@@ -284,6 +414,17 @@ function CaseGallery({ images }: { images: CaseImage[] }) {
           />
         ))}
       </div>
+
+      <AnimatePresence>
+        {lightbox !== null && (
+          <Lightbox
+            images={images}
+            index={lightbox}
+            onIndexChange={setLightbox}
+            onClose={() => setLightbox(null)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
