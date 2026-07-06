@@ -55,6 +55,8 @@ export const cases: CaseStudy[] = [
       { src: tnvedImage, alt: "Подбор кода ТН ВЭД: интерфейс агента" },
     ],
   },
+  // ВРЕМЕННО СКРЫТ по просьбе — вернуть позже. Не удалять.
+  /*
   {
     id: "ai-manager",
     Icon: MessagesSquare,
@@ -78,6 +80,7 @@ export const cases: CaseStudy[] = [
       { src: managerPanelImage, alt: "Панель менеджера: аналитика и управление" },
     ],
   },
+  */
   {
     id: "duplicates",
     Icon: GitCompare,
